@@ -11,7 +11,7 @@ export function About() {
           <div className="divider divider-animate" style={{ maxWidth: 100, margin: '22px auto 0' }} />
         </div>
 
-        <div className="about-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 48, alignItems: 'center' }}>
           <div className="reveal-left">
             {[
               "At Gentleman's Kitchen, we believe good food should be accessible, authentic, and exceptional. Located in the heart of Greda Estate, Teshie, we've become the neighbourhood's go-to spot for premium Ghanaian cuisine.",

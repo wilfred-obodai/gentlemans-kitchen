@@ -15,7 +15,7 @@ export function Contact() {
           <div className="divider" style={{ maxWidth: 100, margin: '22px auto 0' }} />
         </div>
 
-        <div className="grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 52 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 40 }}>
 
           {/* Contact details */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>

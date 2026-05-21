@@ -16,7 +16,12 @@ export function WhyUs() {
           </h2>
         </div>
 
-        <div className="grid-3 stagger" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+        {/* Mobile: 1 col, Tablet: 3 col */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+          gap: 24,
+        }}>
           {FEATURES.map((f, i) => (
             <div key={i} className="feat-card reveal" style={{ transitionDelay: `${i * 0.12}s` }}>
               {f.icon === '★'

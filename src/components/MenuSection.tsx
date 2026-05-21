@@ -237,20 +237,20 @@ export function MenuSection({ cart, cartTotal, cartCount, isOpen, addToCart, set
         })()}
 
         {/* ── Row 2: 6-item categories (excluding starter) — 3 col ── */}
-        <div className="menu-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20, marginBottom: 20 }}>
           {MENU_CATEGORIES.filter(c => c.items.length === 6 && c.id !== 'starter').map(renderCard)}
         </div>
 
         {/* ── Row 3: 5-item categories — 2 col ── */}
         {MENU_CATEGORIES.filter(c => c.items.length === 5).length > 0 && (
-          <div className="menu-grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, marginBottom: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20, marginBottom: 20 }}>
             {MENU_CATEGORIES.filter(c => c.items.length === 5).map(renderCard)}
           </div>
         )}
 
         {/* ── Row 4: 4-item categories — 2 col ── */}
         {MENU_CATEGORIES.filter(c => c.items.length === 4).length > 0 && (
-          <div className="menu-grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, marginBottom: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20, marginBottom: 20 }}>
             {MENU_CATEGORIES.filter(c => c.items.length === 4).map(renderCard)}
           </div>
         )}
@@ -261,12 +261,12 @@ export function MenuSection({ cart, cartTotal, cartCount, isOpen, addToCart, set
           const smallCats = MENU_CATEGORIES.filter(c => c.items.length === 2);
           if (!sundayCat && smallCats.length === 0) return null;
           return (
-            <div className="sunday-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 20, alignItems: 'start' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20, marginBottom: 20, alignItems: 'start' }}>
               {/* Sunday Special on the left */}
               {sundayCat && renderCard(sundayCat)}
               {/* Yam Chips + Potato Chips side by side on the right */}
               {smallCats.length > 0 && (
-                <div className="chips-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
                   {smallCats.map(renderCard)}
                 </div>
               )}
