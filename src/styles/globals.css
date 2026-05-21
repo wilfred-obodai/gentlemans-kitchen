@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: #0f0b07; overflow-x: hidden; color: #fff; }
+
+body {
+  background-color: #0f0b07;
+  overflow-x: hidden;
+  color: #fff;
+}
+
+#root { position: relative; z-index: 1; }
 
 /* Fonts */
 .fd { font-family: 'Cormorant Garamond', Georgia, serif; }

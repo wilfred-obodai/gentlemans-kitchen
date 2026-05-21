@@ -14,7 +14,7 @@ interface MenuProps {
   setCartOpen: (v: boolean) => void;
 }
 
-function SlideImage({ images, color }: { images: string[]; color: string }) {
+function SlideImage({ images, color, pos = 'center center' }: { images: string[]; color: string; pos?: string }) {
   const [idx, setIdx] = useState(0);
   const ref = useRef<ReturnType<typeof setInterval> | null>(null);
   useEffect(() => {
@@ -24,19 +24,18 @@ function SlideImage({ images, color }: { images: string[]; color: string }) {
   }, [images.length]);
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: 190, overflow: 'hidden', background: '#0d0903' }}>
+    <div style={{ position: 'relative', width: '100%', height: '100%', minHeight: 210, overflow: 'hidden', background: '#0d0903' }}>
       {images.map((src, i) => (
         <img key={src} src={src} alt="" style={{
           position: 'absolute', inset: 0, width: '100%', height: '100%',
           objectFit: 'cover',
-          objectPosition: 'center center',
+          objectPosition: pos,
           opacity: i === idx ? 1 : 0,
           transition: 'opacity 0.9s ease',
-          filter: 'brightness(0.82)',
-          transform: 'scale(1.0)',
+          filter: 'brightness(0.88)',
         }} />
       ))}
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, rgba(13,9,4,0.88) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 50%, rgba(13,9,4,0.75) 100%)' }} />
       {images.length > 1 && (
         <div style={{ position: 'absolute', bottom: 8, right: 10, display: 'flex', gap: 4 }}>
           {images.map((_, i) => (
@@ -73,9 +72,6 @@ export function MenuSection({ cart, cartTotal, cartCount, isOpen, addToCart, set
 
   // Categories with 2 items get 1 col, 3-4 get 2 col in grid, 5-7 get full width
   // We group categories by display size for grid layout
-  const smallCats = MENU_CATEGORIES.filter(c => c.items.length <= 2);   // 2 items
-  const medCats   = MENU_CATEGORIES.filter(c => c.items.length >= 3 && c.items.length <= 4); // 3-4 items
-  const largeCats = MENU_CATEGORIES.filter(c => c.items.length >= 5);   // 5+ items
 
   const renderItem = (catName: string, color: string, itemName: string, price: string) => {
     const priceNum = parseInt(price.replace('₵', ''));
@@ -128,7 +124,19 @@ export function MenuSection({ cart, cartTotal, cartCount, isOpen, addToCart, set
       height: '100%',
     }}>
       {/* Image */}
-      <SlideImage images={cat.images} color={cat.color} />
+      <SlideImage images={cat.images} color={cat.color} pos={{
+        'starter': 'center 60%',
+        'banku': 'center 50%',
+        'fried-rice': 'center 40%',
+        'jollof-rice': 'center 50%',
+        'plain-rice': 'center 50%',
+        'yam-chips': 'center 30%',
+        'salad': 'center 50%',
+        'assorted-rice': 'center 50%',
+        'sauces': 'center 60%',
+        'potatochips': 'center 40%',
+        'sunday-special': 'center 50%',
+      }[cat.id] ?? 'center center'} />
 
       {/* Category title */}
       <div style={{
@@ -184,28 +192,87 @@ export function MenuSection({ cart, cartTotal, cartCount, isOpen, addToCart, set
           </div>
         </div>
 
-        {/* ── LARGE CATEGORIES (5+ items) — 3-col ── */}
+        {/* ── Row 1: Starter — full width, image left + items right ── */}
+        {(() => {
+          const cat = MENU_CATEGORIES.find(c => c.id === 'starter');
+          if (!cat) return null;
+          return (
+            <div style={{ borderRadius: 18, overflow: 'hidden', border: `1px solid rgba(22,163,74,0.2)`, background: '#130f06', marginBottom: 20, display: 'flex', minHeight: 320 }}>
+              {/* Left: image */}
+              <div style={{ width: '38%', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
+                <SlideImage images={cat.images} color={cat.color} pos="center 55%" />
+                <div style={{ position: 'absolute', inset: 0, height: '100%' }} />
+              </div>
+              {/* Right: title + items */}
+              <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <div style={{ padding: '18px 22px 12px', borderBottom: `2px solid ${cat.color}55`, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div>
+                    <div className="fd" style={{ fontSize: 24, fontWeight: 700, color: '#fff' }}>{cat.name}</div>
+                    <div className="fb" style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 2 }}>{cat.items.length} items</div>
+                  </div>
+                  <div style={{ background: `${cat.color}22`, border: `1px solid ${cat.color}44`, borderRadius: 8, padding: '3px 10px' }}>
+                    <span className="fb" style={{ fontSize: 11, color: cat.color, fontWeight: 700 }}>MENU</span>
+                  </div>
+                </div>
+                <div style={{ flex: 1, overflowY: 'auto' }}>
+                  {cat.items.map((item, idx) => {
+                    const priceNum = parseInt(item.price.replace('₵', ''));
+                    const justAdded = addedItem === item.name;
+                    return (
+                      <div key={idx} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '11px 22px', borderBottom: idx < cat.items.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none', background: justAdded ? `${cat.color}12` : 'transparent', transition: 'background 0.3s', gap: 10 }}>
+                        <span className="fb" style={{ fontSize: 13, color: 'rgba(255,255,255,0.82)', fontWeight: 500, flex: 1 }}>{item.name}</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 9, flexShrink: 0 }}>
+                          <span className="fd" style={{ fontSize: 17, fontWeight: 700, color: cat.color }}>{item.price}</span>
+                          <button onClick={() => handleAdd(cat.name, item.name, priceNum)} style={{ width: 30, height: 30, borderRadius: '50%', background: justAdded ? '#22c55e' : `linear-gradient(135deg, ${cat.color}, ${cat.color}aa)`, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 3px 10px ${cat.color}44`, transition: 'all 0.2s', transform: justAdded ? 'scale(1.25)' : 'scale(1)', flexShrink: 0 }}>
+                            <Plus size={14} color="#fff" strokeWidth={3} />
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* ── Row 2: 6-item categories (excluding starter) — 3 col ── */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 }}>
-          {largeCats.map(renderCard)}
+          {MENU_CATEGORIES.filter(c => c.items.length === 6 && c.id !== 'starter').map(renderCard)}
         </div>
 
-        {/* ── MEDIUM CATEGORIES (3-4 items) — 2-col ── */}
-        {medCats.length > 0 && (
+        {/* ── Row 3: 5-item categories — 2 col ── */}
+        {MENU_CATEGORIES.filter(c => c.items.length === 5).length > 0 && (
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, marginBottom: 20 }}>
-            {medCats.map(renderCard)}
+            {MENU_CATEGORIES.filter(c => c.items.length === 5).map(renderCard)}
           </div>
         )}
 
-        {/* ── SMALL CATEGORIES (2 items) — side by side, equal height ── */}
-        {smallCats.length > 0 && (
-          <div style={{ display: 'grid', gridTemplateColumns: `repeat(${Math.min(smallCats.length, 3)}, 1fr)`, gap: 20, marginBottom: 20, alignItems: 'stretch' }}>
-            {smallCats.map(cat => (
-              <div key={cat.id} style={{ display: 'flex', flexDirection: 'column' }}>
-                {renderCard(cat)}
-              </div>
-            ))}
+        {/* ── Row 4: 4-item categories — 2 col ── */}
+        {MENU_CATEGORIES.filter(c => c.items.length === 4).length > 0 && (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, marginBottom: 20 }}>
+            {MENU_CATEGORIES.filter(c => c.items.length === 4).map(renderCard)}
           </div>
         )}
+
+        {/* ── Row 5: Sunday Special left + Yam/Potato Chips horizontal right ── */}
+        {(() => {
+          const sundayCat = MENU_CATEGORIES.find(c => c.id === 'sunday-special');
+          const smallCats = MENU_CATEGORIES.filter(c => c.items.length === 2);
+          if (!sundayCat && smallCats.length === 0) return null;
+          return (
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 20, alignItems: 'start' }}>
+              {/* Sunday Special on the left */}
+              {sundayCat && renderCard(sundayCat)}
+              {/* Yam Chips + Potato Chips side by side on the right */}
+              {smallCats.length > 0 && (
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+                  {smallCats.map(renderCard)}
+                </div>
+              )}
+            </div>
+          );
+        })()}
 
         {/* View order CTA */}
         {cartCount > 0 && (

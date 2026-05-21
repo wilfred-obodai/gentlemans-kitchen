@@ -62,7 +62,7 @@ export function Contact() {
           <div style={{ borderRadius: 24, border: '1.5px solid rgba(249,115,22,0.22)', overflow: 'hidden', background: 'linear-gradient(145deg, #1c1509, #100c05)', boxShadow: '0 30px 80px rgba(0,0,0,0.4)' }}>
             <div style={{ height: 260, position: 'relative', overflow: 'hidden' }}>
               <img
-                src="/images/coleslaw.jpeg"
+                src="/images/sauce1.jpeg"
                 alt="Food"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.6) saturate(0.9)' }}
               />
