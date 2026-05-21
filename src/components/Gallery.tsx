@@ -14,21 +14,21 @@ export function Gallery() {
         </div>
 
         {/* Row 1: 3 equal cols */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 14 }}>
+        <div className="gallery-row-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, marginBottom: 14 }}>
           {GALLERY_IMAGES.slice(0, 3).map((item, i) => (
             <GalItem key={i} src={item.src} label={item.label} height={240} />
           ))}
         </div>
 
         {/* Row 2: wide + narrow + narrow */}
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 14, marginBottom: 14 }}>
+        <div className="gallery-row-wide" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 14, marginBottom: 14 }}>
           {GALLERY_IMAGES.slice(3, 6).map((item, i) => (
             <GalItem key={i} src={item.src} label={item.label} height={280} />
           ))}
         </div>
 
         {/* Row 3: narrow + narrow + wide */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 2fr', gap: 14, marginBottom: 14 }}>
+        <div className="gallery-row-wide" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 2fr', gap: 14, marginBottom: 14 }}>
           {GALLERY_IMAGES.slice(6, 9).map((item, i) => (
             <GalItem key={i} src={item.src} label={item.label} height={280} />
           ))}

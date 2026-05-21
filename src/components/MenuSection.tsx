@@ -197,9 +197,9 @@ export function MenuSection({ cart, cartTotal, cartCount, isOpen, addToCart, set
           const cat = MENU_CATEGORIES.find(c => c.id === 'starter');
           if (!cat) return null;
           return (
-            <div style={{ borderRadius: 18, overflow: 'hidden', border: `1px solid rgba(22,163,74,0.2)`, background: '#130f06', marginBottom: 20, display: 'flex', minHeight: 320 }}>
+            <div className="starter-card" style={{ borderRadius: 18, overflow: 'hidden', border: `1px solid rgba(22,163,74,0.2)`, background: '#130f06', marginBottom: 20, display: 'flex', minHeight: 320 }}>
               {/* Left: image */}
-              <div style={{ width: '38%', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
+              <div className="starter-img" style={{ width: '38%', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
                 <SlideImage images={cat.images} color={cat.color} pos="center 55%" />
                 <div style={{ position: 'absolute', inset: 0, height: '100%' }} />
               </div>
@@ -237,20 +237,20 @@ export function MenuSection({ cart, cartTotal, cartCount, isOpen, addToCart, set
         })()}
 
         {/* ── Row 2: 6-item categories (excluding starter) — 3 col ── */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 }}>
+        <div className="menu-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 }}>
           {MENU_CATEGORIES.filter(c => c.items.length === 6 && c.id !== 'starter').map(renderCard)}
         </div>
 
         {/* ── Row 3: 5-item categories — 2 col ── */}
         {MENU_CATEGORIES.filter(c => c.items.length === 5).length > 0 && (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, marginBottom: 20 }}>
+          <div className="menu-grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, marginBottom: 20 }}>
             {MENU_CATEGORIES.filter(c => c.items.length === 5).map(renderCard)}
           </div>
         )}
 
         {/* ── Row 4: 4-item categories — 2 col ── */}
         {MENU_CATEGORIES.filter(c => c.items.length === 4).length > 0 && (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, marginBottom: 20 }}>
+          <div className="menu-grid-2" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, marginBottom: 20 }}>
             {MENU_CATEGORIES.filter(c => c.items.length === 4).map(renderCard)}
           </div>
         )}
@@ -261,12 +261,12 @@ export function MenuSection({ cart, cartTotal, cartCount, isOpen, addToCart, set
           const smallCats = MENU_CATEGORIES.filter(c => c.items.length === 2);
           if (!sundayCat && smallCats.length === 0) return null;
           return (
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 20, alignItems: 'start' }}>
+            <div className="sunday-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 20, alignItems: 'start' }}>
               {/* Sunday Special on the left */}
               {sundayCat && renderCard(sundayCat)}
               {/* Yam Chips + Potato Chips side by side on the right */}
               {smallCats.length > 0 && (
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+                <div className="chips-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
                   {smallCats.map(renderCard)}
                 </div>
               )}

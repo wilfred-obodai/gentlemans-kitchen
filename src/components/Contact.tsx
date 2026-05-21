@@ -60,18 +60,23 @@ export function Contact() {
 
           {/* Location card */}
           <div style={{ borderRadius: 24, border: '1.5px solid rgba(249,115,22,0.22)', overflow: 'hidden', background: 'linear-gradient(145deg, #1c1509, #100c05)', boxShadow: '0 30px 80px rgba(0,0,0,0.4)' }}>
-            <div style={{ height: 260, position: 'relative', overflow: 'hidden' }}>
-              <img
-                src="/images/sauce1.jpeg"
-                alt="Food"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.6) saturate(0.9)' }}
-              />
-              <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, rgba(249,100,10,0.2) 0%, transparent 65%)' }} />
-              <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center' }}>
-                <div style={{ width: 54, height: 54, borderRadius: '50%', background: '#F97316', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 10px', boxShadow: '0 0 28px rgba(249,115,22,0.7)' }}>
-                  <MapPin size={22} color="#fff" />
+            <div style={{ height: 260, position: 'relative', overflow: 'hidden', background: 'linear-gradient(135deg, #1a0e04, #0f0b07)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {/* Orange glow background */}
+              <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, rgba(249,115,22,0.12) 0%, transparent 70%)' }} />
+              {/* Logo centered */}
+              <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
+                <img
+                  src="/images/logo.png"
+                  alt="Gentleman's Kitchen"
+                  style={{ width: 220, height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 4px 24px rgba(249,115,22,0.4))' }}
+                />
+              </div>
+              {/* Pin icon bottom center */}
+              <div style={{ position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)', display: 'flex', alignItems: 'center', gap: 6 }}>
+                <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#F97316', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 14px rgba(249,115,22,0.7)' }}>
+                  <MapPin size={14} color="#fff" />
                 </div>
-                <div className="fd" style={{ fontSize: 18, fontWeight: 700, color: '#fff', textShadow: '0 2px 12px rgba(0,0,0,0.9)' }}>Gentleman's Kitchen</div>
+                <span className="fb" style={{ fontSize: 12, color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>Greda Estate, Teshie</span>
               </div>
             </div>
             <div style={{ padding: '26px 30px' }}>

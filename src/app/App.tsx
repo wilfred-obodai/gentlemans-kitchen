@@ -6,6 +6,7 @@ import '../styles/globals.css';
 import { DISHES } from '../data/dishes';
 import { loadSettings, saveSettings, loadNotice, saveNotice, getDishSetting } from '../data/storage';
 import { useCart } from '../hooks/useCart';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 import { HolidayBanner } from '../components/HolidayBanner';
 import { Navbar } from '../components/Navbar';
@@ -31,6 +32,7 @@ export default function App() {
   const [adminOpen, setAdminOpen]           = useState(false);
 
   const cart = useCart();
+  useScrollReveal();
 
   // ── Check restaurant open (opens 6AM, closes 10PM) ──
   useEffect(() => {
