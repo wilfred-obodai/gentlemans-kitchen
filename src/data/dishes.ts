@@ -33,7 +33,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     name: 'Fried Rice',
     emoji: '🍚',
     color: '#d4a017',
-    images: ['/images/fried-rice-fish.jpg', '/images/menu1.jpeg'],
+    images: ['/images/fried-rice-real.jpeg', '/images/fried-rice-fish.jpg'],
     items: [
       { name: 'Fried Rice & Tilapia', price: '₵100' },
       { name: 'Fried Rice & Goat', price: '₵90' },
@@ -48,7 +48,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     name: 'Jollof Rice',
     emoji: '🍛',
     color: '#c0392b',
-    images: ['/images/menu3.jpeg'],
+    images: ['/images/jollof1.jpeg', '/images/jollof2.jpeg'],
     items: [
       { name: 'Jollof Rice & Tilapia', price: '₵120' },
       { name: 'Jollof Rice & Goat', price: '₵90' },
@@ -101,7 +101,7 @@ export const MENU_CATEGORIES: MenuCategory[] = [
     name: 'Assorted Rice',
     emoji: '🍱',
     color: '#8e44ad',
-    images: ['/images/indomie.jpeg'],
+    images: ['/images/assorted1.jpeg', '/images/assorted2.jpeg'],
     items: [
       { name: 'Assorted Fried Rice', price: '₵65' },
       { name: 'Assorted Jollof Rice', price: '₵65' },

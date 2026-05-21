@@ -24,17 +24,19 @@ function SlideImage({ images, color }: { images: string[]; color: string }) {
   }, [images.length]);
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: 160, overflow: 'hidden' }}>
+    <div style={{ position: 'relative', width: '100%', height: 190, overflow: 'hidden', background: '#0d0903' }}>
       {images.map((src, i) => (
         <img key={src} src={src} alt="" style={{
           position: 'absolute', inset: 0, width: '100%', height: '100%',
-          objectFit: 'cover', objectPosition: 'center',
+          objectFit: 'cover',
+          objectPosition: 'center center',
           opacity: i === idx ? 1 : 0,
           transition: 'opacity 0.9s ease',
-          filter: 'brightness(0.7)',
+          filter: 'brightness(0.82)',
+          transform: 'scale(1.0)',
         }} />
       ))}
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 20%, rgba(13,9,4,0.92) 100%)' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 30%, rgba(13,9,4,0.88) 100%)' }} />
       {images.length > 1 && (
         <div style={{ position: 'absolute', bottom: 8, right: 10, display: 'flex', gap: 4 }}>
           {images.map((_, i) => (
