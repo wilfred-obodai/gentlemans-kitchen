@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { AdminPanel } from '../components/AdminPanel';
-import { DISHES } from '../data/dishes';
 import { loadSettings, saveSettings, loadNotice, saveNotice, getDishSetting } from '../data/storage';
 import { DishSettings, Notice } from '../types';
 import '../styles/globals.css';
@@ -9,8 +8,8 @@ export default function AdminPage() {
   const [settings, setSettings] = useState<DishSettings>(loadSettings);
   const [notice, setNotice] = useState<Notice>(loadNotice);
 
-  const toggleSetting = (id: number, key: 'available' | 'quickDelivery') => {
-    const current = getDishSetting(settings, id);
+  const toggleSetting = (id: string, key: 'available' | 'quickDelivery') => {
+    const current = (settings as any)[id] ?? { available: true, quickDelivery: false };
     const updated = { ...settings, [id]: { ...current, [key]: !current[key] } };
     setSettings(updated);
     saveSettings(updated);
@@ -23,7 +22,7 @@ export default function AdminPage() {
 
   return (
     <AdminPanel
-      dishes={DISHES}
+      dishes={[]}
       settings={settings}
       notice={notice}
       adminOpen={true}
