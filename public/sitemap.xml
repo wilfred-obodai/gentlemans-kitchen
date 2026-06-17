@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.gentlemans-kitchengh.com/</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Uncomment and adjust these to match your actual React routes -->
+  <!--
+  <url><loc>https://www.gentlemans-kitchengh.com/menu</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gentlemans-kitchengh.com/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.gentlemans-kitchengh.com/contact</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  -->
+</urlset>
