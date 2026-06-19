@@ -205,7 +205,6 @@ export const GALLERY_IMAGES = [
 
 export const CONTACT_INFO = {
   phone1: '0592 730 579',
-  phone2: '0592 861 516',
   whatsapp: '233592730579',
   instagram: 'gentlemans_kitchen1',
   location: 'Greda Estate, Teshie',

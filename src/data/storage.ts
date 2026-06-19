@@ -30,15 +30,10 @@ export function saveNotice(n: Notice) {
 }
 
 export function generateOrderNumber(): string {
-  const now = new Date();
-  const dateStr = now.getFullYear().toString().slice(2)
-    + String(now.getMonth() + 1).padStart(2, '0')
-    + String(now.getDate()).padStart(2, '0');
-  let stored: { date: string; seq: number } = { date: '', seq: 0 };
-  try { const raw = localStorage.getItem(KEYS.ORDER_SEQ); if (raw) stored = JSON.parse(raw); } catch {}
-  const seq = stored.date === dateStr ? stored.seq + 1 : 1;
-  localStorage.setItem(KEYS.ORDER_SEQ, JSON.stringify({ date: dateStr, seq }));
-  return `GK-${dateStr}-${String(seq).padStart(3, '0')}`;
+  const d = new Date();
+  const ymd = `${`${d.getFullYear()}`.slice(2)}${`${d.getMonth() + 1}`.padStart(2, '0')}${`${d.getDate()}`.padStart(2, '0')}`;
+  const rand = Math.floor(1000 + Math.random() * 9000); // 4 random digits
+  return `GK-${ymd}-${rand}`;
 }
 
 export function getDishSetting(settings: DishSettings, id: number) {

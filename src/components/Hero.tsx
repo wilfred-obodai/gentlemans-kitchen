@@ -33,7 +33,7 @@ export function Hero({ scrollToSection }: HeroProps) {
 
       {/* Content */}
       <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 24px', maxWidth: 860, margin: '0 auto' }}>
-        
+
         <div className="ornament" style={{ marginBottom: 22, animation: 'fadeIn 0.8s ease 0.2s both' }}>
           <Flame size={15} color="#F97316" />
         </div>
@@ -67,6 +67,9 @@ export function Hero({ scrollToSection }: HeroProps) {
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', animation: 'fadeIn 0.8s ease 1.2s both' }}>
           <button className="btn-gold fb" onClick={() => scrollToSection('menu')} style={{ padding: '14px 36px', borderRadius: 50, fontSize: 15 }}>
             Order Now
+          </button>
+          <button className="btn-gold fb" onClick={() => window.dispatchEvent(new Event('open-preorder'))} style={{ padding: '14px 36px', borderRadius: 50, fontSize: 15 }}>
+            Pre-Order
           </button>
           <button className="btn-outline fb" onClick={() => scrollToSection('contact')} style={{ padding: '13px 34px', borderRadius: 50, fontSize: 15 }}>
             Find Us

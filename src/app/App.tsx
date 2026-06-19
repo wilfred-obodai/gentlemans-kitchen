@@ -19,6 +19,7 @@ import { Contact } from '../components/Contact';
 import { Footer } from '../components/Footer';
 import { CartDrawer } from '../components/CartDrawer';
 import { AdminPanel } from '../components/AdminPanel';
+import PreOrder from '../components/PreOrder';
 
 import { DishSettings, Notice } from '../types';
 
@@ -165,6 +166,9 @@ export default function App() {
       <Contact />
 
       <Footer scrollToSection={scrollToSection} setAdminOpen={setAdminOpen} />
+
+      {/* Pre-order floating button + modal */}
+      <PreOrder />
     </div>
   );
 }
