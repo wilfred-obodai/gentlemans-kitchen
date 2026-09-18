@@ -1,7 +1,7 @@
 const FEATURES = [
-  { icon: '🔥', title: 'Fresh Grills Daily', description: 'Every dish is prepared fresh. No reheating, no shortcuts — ever.' },
+  { icon: '🔥', title: 'Fresh Grills Daily', description: 'Every dish is prepared fresh. No reheating, no shortcuts ever.' },
   { icon: '★', title: 'Authentic Ghanaian', description: 'Recipes passed down and perfected. Flavors that taste like home.' },
-  { icon: '⚡', title: 'Fast & Friendly', description: 'Quick service, warm smiles — quality food without the long wait.' },
+  { icon: '⚡', title: 'Fast & Friendly', description: 'Quick service, warm smiles, and quality food without the long wait.' },
 ];
 
 export function WhyUs() {

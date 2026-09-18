@@ -15,7 +15,7 @@ export function About() {
           <div className="reveal-left">
             {[
               "At Gentleman's Kitchen, we believe good food should be accessible, authentic, and exceptional. Located in the heart of Greda Estate, Teshie, we've become the neighbourhood's go-to spot for premium Ghanaian cuisine.",
-              "Every dish is prepared fresh daily — from our smoky jollof rice to our loaded shawarma, fresh salads and perfectly grilled chicken. Flavours that feel like home, elevated.",
+              "Every dish is prepared fresh daily from our smoky jollof rice to our loaded shawarma, fresh salads and perfectly grilled chicken. Flavours that feel like home, elevated.",
               "We are more than a restaurant. We are a community gathering place where quality meets convenience, and every meal tells a story. We do delivery too — order now!",
             ].map((p, i) => (
               <p key={i} className="fb" style={{ fontSize: 16, color: 'rgba(255,255,255,0.7)', lineHeight: 1.88, marginBottom: 18 }}>{p}</p>

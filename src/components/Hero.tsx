@@ -61,7 +61,7 @@ export function Hero({ scrollToSection }: HeroProps) {
         </h1>
 
         <p className="fb" style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255,255,255,0.65)', lineHeight: 1.8, maxWidth: 540, margin: '0 auto 44px', animation: 'fadeIn 0.8s ease 1s both' }}>
-          Fresh Ghanaian food, grills, shawarma and more — made daily with love at Greda Estate.
+          Fresh Ghanaian food, grills, shawarma and more made daily with love at Greda Estate.
         </p>
 
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', animation: 'fadeIn 0.8s ease 1.2s both' }}>
