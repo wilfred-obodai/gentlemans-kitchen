@@ -38,10 +38,10 @@ export function Footer({ scrollToSection }: FooterProps) {
         <div className="divider" style={{ maxWidth: 160, margin: '0 auto 22px' }} />
 
         <p className="fb" style={{ fontSize: 11, color: 'rgba(255,255,255,0.2)', marginTop: 12 }}>
-          © 2025 Gentleman's Kitchen · Greda Estate, Teshie, Accra, Ghana
+          © 2026 Gentleman's Kitchen · Greda Estate, Teshie, Accra, Ghana
         </p>
         <p className="fb" style={{ fontSize: 11, color: 'rgba(249,115,22,0.4)', marginTop: 6, letterSpacing: '0.04em' }}>
-          Powered by StacHub
+          Powered by <strong>Stachub Technologies</strong>
         </p>
       </div>
     </footer>
