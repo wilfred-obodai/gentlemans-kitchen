@@ -15,7 +15,7 @@ interface AdminProps {
   isPage?: boolean;
 }
 
-const ADMIN_PIN = '@gk-162026';
+const ADMIN_PIN = 'Mrgentle@162026';
 
 export function AdminPanel({
   settings, notice, adminOpen, setAdminOpen,
